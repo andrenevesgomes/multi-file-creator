@@ -12,11 +12,14 @@ The **Multi-File Creator Extension** is a handy tool for Visual Studio Code that
 - **Quick File Creation:**
   Create multiple files simultaneously by simply entering their names separated by commas (e.g., `main.bicep, secret.bicep`).
 
+- **Context-Aware Targeting:**
+  By default, files are created in your workspace root. However, if you right-click on a folder in the Explorer, the extension will remember that folder as the target. You can then use the hotkey or Command Palette to create files in the previously selected folder—even if you don't explicitly pass a folder again.
+
 - **Customizable Hotkey:**
   Launch the file creation command using the default hotkey `Ctrl+Alt+N` (or customize it as needed).
 
 - **Seamless Integration:**
-  Use the command palette or your hotkey to instantly generate files in your active workspace.
+  Use the command palette, hotkey, or right-click context menu to generate files exactly where you need them.
 
 - **Minimal Setup:**
   No complex configuration required—just install and use.
@@ -40,11 +43,14 @@ The **Multi-File Creator Extension** is a handy tool for Visual Studio Code that
 
 ## Usage
 
-1. **Open the Command Palette:**
-   Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS).
+1. **Selecting a Target Folder (Optional):**
+   - **Right-Click in Explorer:**
+     To create files in a specific folder, right-click on that folder in the Explorer and select **Create Multiple Files**. This sets that folder as the target.
+   - **Using Hotkey or Command Palette:**
+     If you have previously selected a folder using the context menu, pressing the hotkey (`Ctrl+Alt+N`) or invoking the command via the Command Palette will create files in that stored folder. If no folder was selected, the extension will use the active file's directory or default to the workspace root.
 
 2. **Execute the Command:**
-   Type **Create Multiple Files** and select it.
+   - Press `Ctrl+Alt+N` or open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and type **Create Multiple Files**.
 
 3. **Enter Filenames:**
    When prompted, input the filenames separated by commas. For example:
@@ -53,7 +59,7 @@ The **Multi-File Creator Extension** is a handy tool for Visual Studio Code that
    ```
 
 4. **File Creation:**
-   The extension creates each file in your current workspace folder. Existing files will remain unchanged.
+   The extension creates each file in the determined target folder. If a file already exists, it is skipped.
 
 ## Customization
 
@@ -71,7 +77,7 @@ The default hotkey is `Ctrl+Alt+N`. To change it:
   Ensure that a folder is open in VS Code before running the command.
 
 - **File Creation Errors:**
-  Verify that you have the necessary permissions to write files in the current workspace.
+  Verify that you have the necessary permissions to write files in the selected target folder.
 
 ## Contributing
 

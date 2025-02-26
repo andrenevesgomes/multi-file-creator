@@ -1,8 +1,43 @@
 import * as vscode from 'vscode';
+import * as path from 'path';
+
+// Global variable to store the last selected folder
+let lastSelectedFolder: vscode.Uri | undefined;
 
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand('extension.createMultipleFiles', async () => {
-    // Prompt user for file names
+  let disposable = vscode.commands.registerCommand('extension.createMultipleFiles', async (uri?: vscode.Uri) => {
+    // If a URI is passed (from the Explorer context), check if it's a folder and store it.
+    if (uri) {
+      try {
+        const stat = await vscode.workspace.fs.stat(uri);
+        if (stat.type === vscode.FileType.Directory) {
+          lastSelectedFolder = uri;
+        }
+      } catch (error) {
+        console.error('Error reading resource stats:', error);
+      }
+    }
+
+    // Determine the target folder.
+    // Priority 1: the folder passed in via the context menu (or stored from a previous context menu call)
+    let targetFolder: vscode.Uri | undefined = lastSelectedFolder;
+
+    // Priority 2: if there's an active text editor, use its file's directory.
+    if (!targetFolder && vscode.window.activeTextEditor) {
+      targetFolder = vscode.Uri.file(path.dirname(vscode.window.activeTextEditor.document.uri.fsPath));
+    }
+
+    // Priority 3: fallback to the first workspace folder.
+    if (!targetFolder) {
+      targetFolder = vscode.workspace.workspaceFolders?.[0]?.uri;
+    }
+
+    if (!targetFolder) {
+      vscode.window.showErrorMessage('No folder selected or workspace open. Please open a folder and try again.');
+      return;
+    }
+
+    // Prompt user for file names.
     const input = await vscode.window.showInputBox({
       prompt: 'Enter file names separated by commas (e.g., index.html, script.js, styles.css)',
       placeHolder: 'index.html, app.js, styles.css, notes.txt',
@@ -14,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    // Process file names
+    // Process file names.
     const fileNames = input.split(',')
       .map(name => name.trim())
       .filter(name => name.length > 0);
@@ -24,20 +59,13 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    // Get the current workspace folder
-    const workspaceFolder = vscode.workspace.workspaceFolders?.[0]?.uri;
-    if (!workspaceFolder) {
-      vscode.window.showErrorMessage('No workspace folder is open. Please open a folder and try again.');
-      return;
-    }
-
     let createdFiles: string[] = [];
     let failedFiles: string[] = [];
 
     for (const fileName of fileNames) {
-      const fileUri = vscode.Uri.joinPath(workspaceFolder, fileName);
+      const fileUri = vscode.Uri.joinPath(targetFolder, fileName);
       try {
-        // Check if file already exists
+        // Check if file already exists.
         const exists = await vscode.workspace.fs.stat(fileUri).then(() => true, () => false);
         if (exists) {
           vscode.window.showWarningMessage(`File "${fileName}" already exists. Skipping.`);
@@ -45,7 +73,7 @@ export function activate(context: vscode.ExtensionContext) {
           continue;
         }
 
-        // Create an empty file
+        // Create an empty file.
         await vscode.workspace.fs.writeFile(fileUri, new Uint8Array());
         createdFiles.push(fileName);
       } catch (err) {
@@ -54,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
       }
     }
 
-    // Provide user feedback
+    // Provide user feedback.
     if (createdFiles.length > 0) {
       vscode.window.showInformationMessage(`✅ Created files: ${createdFiles.join(', ')}`);
     }

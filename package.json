@@ -1,8 +1,8 @@
 {
   "name": "multi-file-creator",
-  "displayName": "multi-file-creator",
+  "displayName": "Multi-File Creator Extension",
   "description": "Quickly create multiple files by entering a comma-separated list of filenames.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "TheAndreGomes",
   "icon": "logo.png",
   "engines": {
@@ -10,6 +10,14 @@
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "multi-file",
+    "file creation",
+    "automation",
+    "productivity",
+    "file management",
+    "keybindings"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -26,7 +34,16 @@
         "key": "ctrl+alt+n",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.createMultipleFiles",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "repository": {
     "type": "git",
