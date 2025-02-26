@@ -4,6 +4,7 @@
   "description": "Quickly create multiple files by entering a comma-separated list of filenames.",
   "version": "0.0.1",
   "publisher": "TheAndreGomes",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.97.0"
   },

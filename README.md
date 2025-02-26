@@ -1,6 +1,6 @@
 # Multi-File Creator Extension
 
-[![Visual Studio Marketplace Version](https://img.shields.io/vscode-marketplace/v/yourpublisher.multi-file-creator.svg?style=flat)](https://marketplace.visualstudio.com/items?itemName=yourpublisher.multi-file-creator)
+[![Visual Studio Marketplace Version](https://img.shields.io/vscode-marketplace/v/yourpublisher.multi-file-creator.svg?style=flat)](https://marketplace.visualstudio.com/items?itemName=TheAndreGomes.multi-file-creator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Overview
