@@ -2,6 +2,7 @@
 
 [![Visual Studio Marketplace Version](https://img.shields.io/vscode-marketplace/v/TheAndreGomes.multi-file-creator.svg?style=flat)](https://marketplace.visualstudio.com/items?itemName=TheAndreGomes.multi-file-creator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Approved By Toyota (Private Joke)](https://img.shields.io/badge/approved%20by%20toyota-EB0A1E.svg?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgNzIgNzIiPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01IDE3aDYydjM4SDV6Ii8+CiAgPGNpcmNsZSBjeD0iMzYiIGN5PSIzNiIgcj0iOSIgZmlsbD0iI2QyMmYyNyIvPgogIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik01IDE3aDYydjM4SDV6Ii8+Cjwvc3ZnPg==)](https://img.shields.io/badge/approved%20by%20toyota-EB0A1E.svg?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgNzIgNzIiPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01IDE3aDYydjM4SDV6Ii8+CiAgPGNpcmNsZSBjeD0iMzYiIGN5PSIzNiIgcj0iOSIgZmlsbD0iI2QyMmYyNyIvPgogIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik01IDE3aDYydjM4SDV6Ii8+Cjwvc3ZnPg==)
 
 ## Overview
 
